@@ -1,0 +1,19 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" disabled="false" id="44e38856-e47f-4190-be1c-4ea6dd15c3c4">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map" disabled="false" id="dbcad267-5c5e-4638-bf6a-9527d32afcec">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke" disabled="false" id="bd05884e-7fb8-4a64-91c6-a9fc2b811e85" invocationOrder="0" temporaryMapping="true" serviceId="nabu.misc.metrics.Services.snapshotUntil" resultName="resulte3190ba31f604e8c968f31c0bede9c27" y="83" x="31">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="68e752a3-8f1a-4f2b-9daf-3eaab91ecfdc" fixedValue="false" optional="false" mask="false">
+				<from>input/query/databaseId</from>
+				<to>metricsDatabaseId</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="7c6115ce-f088-49ce-bff6-b58ac5f57959" fixedValue="false" optional="false" mask="false">
+				<from>input/path/id</from>
+				<to>id</to>
+			</steps>
+			<asynchronous>false</asynchronous>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="ef76b310-aa6d-4c32-8465-3cbf64d223f6" fixedValue="false" optional="false" mask="false">
+			<from>resulte3190ba31f604e8c968f31c0bede9c27/snapshot/metrics[0]/sinks</from>
+			<to>output/content/sinks</to>
+		</steps>
+	</steps>
+</sequence>

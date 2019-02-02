@@ -1,0 +1,11 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" disabled="false" id="89be5148-7b6d-450b-9f5c-5339e13e6fd1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.For" disabled="false" id="4c3fe447-d995-4f29-93fc-21da18eb8ac9" variable="value" index="index">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map" disabled="false" id="b4b3e648-ad22-4730-a599-127f3000a274">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="fc8a4d7d-0595-47c5-87dd-3099b94283dd" fixedValue="false" optional="false" mask="false">
+				<from>value</from>
+				<to>output/results[/index]/value</to>
+			</steps>
+		</steps>
+		<query>input/values</query>
+	</steps>
+</sequence>

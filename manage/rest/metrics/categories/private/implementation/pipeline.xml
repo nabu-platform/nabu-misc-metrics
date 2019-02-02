@@ -1,0 +1,7 @@
+<structure interface="$self:api" name="pipeline">
+    <structure name="input"/>
+    <structure name="output"/>
+    <structure definition="be.nabu.eai.module.metrics.MetricsProviderDescription$MetricsProviderArtifact" maxOccurs="unbounded" minOccurs="0" name="providers"/>
+    <field maxOccurs="unbounded" minOccurs="0" name="categories" type="java.lang.String"/>
+    <field maxOccurs="unbounded" minOccurs="0" name="allCategories" type="java.lang.String"/>
+</structure>

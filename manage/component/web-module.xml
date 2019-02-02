@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webModule>
+    <path>/metrics/api/v1</path>
+    <webFragments>nabu.misc.metrics.manage.rest.metrics.ids</webFragments>
+    <webFragments>nabu.misc.metrics.manage.rest.metrics.statistics</webFragments>
+    <webFragments>nabu.misc.metrics.manage.rest.metrics.categories</webFragments>
+    <webFragments>nabu.misc.metrics.manage.rest.metrics.sinks</webFragments>
+</webModule>

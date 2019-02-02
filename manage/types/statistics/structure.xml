@@ -1,0 +1,12 @@
+<structure name="statistics">
+    <field name="id" type="java.lang.String"/>
+    <field name="type" type="java.lang.String"/>
+    <field name="name" type="java.lang.String"/>
+    <field name="amountOfDataPoints" type="java.lang.Long"/>
+    <field name="cumulativeAverage" type="java.lang.Double"/>
+    <field name="exponentialAverage" type="java.lang.Double"/>
+    <field comment="Calculates the total based on the cumulative average &amp; amount of data points" name="cumulativeTotal" type="java.lang.Double"/>
+    <structure definition="be.nabu.libs.metrics.core.api.SinkValue" minOccurs="0" name="maximum"/>
+    <structure definition="be.nabu.libs.metrics.core.api.SinkValue" minOccurs="0" name="minimum"/>
+    <structure definition="be.nabu.libs.metrics.core.api.SinkValue" minOccurs="0" name="latest"/>
+</structure>

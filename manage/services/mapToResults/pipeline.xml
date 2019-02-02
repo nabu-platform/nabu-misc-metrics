@@ -1,0 +1,8 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field maxOccurs="unbounded" minOccurs="0" name="values" type="java.lang.String"/>
+    </structure>
+    <structure name="output">
+        <structure definition="nabu.misc.metrics.manage.types.result" maxOccurs="unbounded" minOccurs="0" name="results"/>
+    </structure>
+</structure>

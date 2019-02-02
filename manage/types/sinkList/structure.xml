@@ -1,0 +1,3 @@
+<structure name="sinkList">
+    <structure definition="be.nabu.eai.module.metrics.MetricsSnapshot$ArtifactMetricsSink" maxOccurs="unbounded" minOccurs="0" name="sinks"/>
+</structure>

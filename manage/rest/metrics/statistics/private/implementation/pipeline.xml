@@ -1,0 +1,6 @@
+<structure interface="$self:api" name="pipeline">
+    <structure name="input"/>
+    <structure name="output"/>
+    <structure definition="be.nabu.eai.module.metrics.MetricsSnapshot" minOccurs="0" name="snapshot"/>
+    <structure definition="nabu.misc.metrics.manage.types.statistics" name="statistics"/>
+</structure>

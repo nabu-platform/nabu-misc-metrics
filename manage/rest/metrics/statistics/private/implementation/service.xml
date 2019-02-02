@@ -1,0 +1,92 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" disabled="false" id="c1ee7ca9-bb3d-4a18-a8e9-cb4c58fe61a8">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map" disabled="false" id="2d0b660f-7e52-4548-958c-4a5d8f92340a">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke" disabled="false" id="7bd4f755-5668-4083-a4bb-b78025f29f03" invocationOrder="0" temporaryMapping="true" serviceId="nabu.misc.metrics.Services.snapshotUntil" resultName="resultae6ef408ed7d43e9b447f767f9b54126" y="108" x="41">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="38f6315c-220a-4078-a712-065df813f2e9" fixedValue="true" optional="false" mask="false">
+				<from>0</from>
+				<to>amount</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="5c891fa4-5a96-4cb4-9a1b-52d8a54c7f3a" fixedValue="false" optional="false" mask="false">
+				<from>input/query/databaseId</from>
+				<to>metricsDatabaseId</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="c6a71a1e-6d7c-4cfd-b794-9950087b85f1" fixedValue="false" optional="false" mask="false">
+				<from>input/path/category</from>
+				<to>category</to>
+			</steps>
+			<asynchronous>false</asynchronous>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="4da7f15b-953e-478a-96f8-f08445e404f5" fixedValue="false" optional="false" mask="false">
+			<from>resultae6ef408ed7d43e9b447f767f9b54126/snapshot</from>
+			<to>snapshot</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.For" disabled="false" id="0db98ac8-3b68-453e-877e-8ce161c180f9" variable="metric">
+		<steps xsi:type="be.nabu.libs.services.vm.step.For" disabled="false" id="8d2eabe9-c24f-4676-b00f-2f1a22e38b65" variable="sink">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map" disabled="false" comment="Map initial" id="8c8845a4-99da-4638-adc0-322ec927b892">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="ab9ad093-26cd-4eef-baf7-738e8aa362a5" fixedValue="false" optional="false" mask="true">
+					<from>sink/statistics</from>
+					<to>statistics</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map" disabled="false" comment="Map rest" id="2668b086-623a-482b-9e23-21d1e3b141be">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="ecfe8136-ee1e-49b6-ac2d-8aad2f6090e4" fixedValue="false" optional="false" mask="false">
+					<from>sink/name</from>
+					<to>statistics/name</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="20b5b455-263c-4d1a-b99a-f40f342cb026" fixedValue="false" optional="false" mask="false">
+					<from>sink/latest</from>
+					<to>statistics/latest</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="a757d590-39b3-47d2-b4ab-27b787971af9" fixedValue="true" optional="false" mask="false">
+					<from>=sink/statistics/cumulativeAverage * sink/statistics/amountOfDataPoints</from>
+					<to>statistics/cumulativeTotal</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="6a783599-d0f5-4604-9382-d19f055ffc5d" fixedValue="false" optional="false" mask="false">
+					<from>metric/id</from>
+					<to>statistics/id</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="9923f677-fdc6-4d3a-a58f-cfdf1be6d96e" fixedValue="false" optional="false" mask="false">
+					<from>metric/type</from>
+					<to>statistics/type</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map" disabled="false" id="a7fe5ef1-c004-4916-9c52-6f695afb9b0d">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke" disabled="false" id="a9e1371c-d2b4-45d8-b1fe-6e9a6e38e967" invocationOrder="0" temporaryMapping="true" serviceId="nabu.utils.List.add" resultName="resultffb5ab30b05443a7a70c35b5895cd6c2" y="130" x="87">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="02af0024-d2d7-4979-a931-5ee36a3943af" fixedValue="false" optional="false" mask="false">
+						<from>output/content/statistics</from>
+						<to>list</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="5f71b60d-799f-431e-a3a3-fafc77113037" fixedValue="false" optional="false" mask="false">
+						<from>statistics</from>
+						<to>object</to>
+					</steps>
+					<asynchronous>false</asynchronous>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="e07e3040-e6f0-465c-ac2a-a10afad29620" fixedValue="false" optional="false" mask="false">
+					<from>resultffb5ab30b05443a7a70c35b5895cd6c2/list</from>
+					<to>output/content/statistics</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Drop" disabled="false" id="26d1e0a7-33ea-47dd-a98e-69b3556bfa9d" path="statistics" xsi:nil="true"/>
+			</steps>
+			<query>metric/sinks[statistics != null]</query>
+		</steps>
+		<query>snapshot/metrics</query>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map" disabled="false" label="input/query/orderBy != null" id="287bfb37-5a77-4645-a99c-6ab4e83409e5">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke" disabled="false" id="16553621-4b64-4dad-8e16-8b8351067b8f" invocationOrder="0" temporaryMapping="true" serviceId="nabu.utils.List.sort" resultName="resultcbc3896875c94cfaa2cd4d4064eda2f1" y="90" x="157">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="1719fa7b-da37-42ad-bd78-eeb7f4ff18f1" fixedValue="false" optional="false" mask="false">
+				<from>output/content/statistics</from>
+				<to>list</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="3cc4d593-9625-4362-98f7-ae64656df449" fixedValue="false" optional="false" mask="false">
+				<from>input/query/orderBy</from>
+				<to>fields</to>
+			</steps>
+			<asynchronous>false</asynchronous>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link" disabled="false" id="ce520c9a-0f90-466f-b501-6e6e31d18e11" fixedValue="false" optional="false" mask="false">
+			<from>resultcbc3896875c94cfaa2cd4d4064eda2f1/list</from>
+			<to>output/content/statistics</to>
+		</steps>
+	</steps>
+</sequence>

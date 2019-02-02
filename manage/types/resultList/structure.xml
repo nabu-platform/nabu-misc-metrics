@@ -1,0 +1,3 @@
+<structure name="resultList">
+    <structure definition="nabu.misc.metrics.manage.types.result" maxOccurs="unbounded" minOccurs="0" name="results"/>
+</structure>
