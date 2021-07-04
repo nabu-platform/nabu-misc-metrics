@@ -1,0 +1,454 @@
+{ 
+	"category": "Monitoring",
+	"name": "Metrics List",
+	"description": "An overview of all the metrics",
+	"icon": "images/workflow/workflow-large.png",
+	"content": {
+		"type": "page",
+		"content": {
+			"rows": [
+				{
+					"id": 1,
+					"cells": [
+						{
+							"id": 2,
+							"rows": [],
+							"alias": "data-table-list",
+							"bindings": {
+								"databaseId": null,
+								"orderBy": null,
+								"category": "fixed.executionTime",
+								"properties": null
+							},
+							"name": null,
+							"state": {
+								"autoRefresh": null,
+								"orderBy": [
+									"cumulativeTotal desc"
+								],
+								"filterPlaceHolder": null,
+								"filterType": {
+									"component": "data-combo-filter",
+									"name": "Combo Filter"
+								},
+								"title": "Metrics",
+								"limit": 10,
+								"actions": [
+									{
+										"name": "viewArtifact",
+										"icon": "fa-chevron-right",
+										"class": null,
+										"label": null,
+										"condition": null,
+										"refresh": false,
+										"global": false,
+										"close": false,
+										"type": "button",
+										"useSelection": false
+									}
+								],
+								"filters": [
+									{
+										"name": "category",
+										"label": "Category",
+										"description": null,
+										"type": "enumeration-operation",
+										"enumerations": [],
+										"value": null,
+										"group": null,
+										"joinGroup": false,
+										"enumerationProvider": null,
+										"enumerationOperation": "nabu.misc.metrics.manage.rest.metrics.categories",
+										"enumerationOperationLabel": "value",
+										"enumerationOperationValue": "value",
+										"enumerationOperationQuery": "q",
+										"enumerationOperationBinding": {}
+									}
+								],
+								"fields": [
+									{
+										"label": "id",
+										"fragments": [
+											{
+												"type": "data",
+												"key": "id",
+												"content": null,
+												"format": null,
+												"javascript": null,
+												"template": null,
+												"class": null,
+												"form": {}
+											}
+										],
+										"styles": [],
+										"hidden": null,
+										"width": "3"
+									},
+									{
+										"label": "#Points",
+										"fragments": [
+											{
+												"type": "data",
+												"key": "amountOfDataPoints",
+												"content": null,
+												"format": null,
+												"javascript": null,
+												"template": null,
+												"class": null,
+												"form": {}
+											}
+										],
+										"styles": [],
+										"hidden": null
+									},
+									{
+										"label": "total",
+										"fragments": [
+											{
+												"type": "data",
+												"key": "cumulativeTotal",
+												"content": null,
+												"format": "number",
+												"javascript": null,
+												"template": null,
+												"class": null,
+												"form": {},
+												"dateFormat": null,
+												"tag": null,
+												"html": null,
+												"amountOfDecimals": "2"
+											}
+										],
+										"styles": [],
+										"hidden": null
+									},
+									{
+										"label": "cumulative",
+										"fragments": [
+											{
+												"type": "data",
+												"key": "cumulativeAverage",
+												"content": null,
+												"format": "number",
+												"javascript": null,
+												"template": null,
+												"class": null,
+												"form": {},
+												"dateFormat": null,
+												"tag": null,
+												"html": null,
+												"amountOfDecimals": "2"
+											}
+										],
+										"styles": [],
+										"hidden": null
+									},
+									{
+										"label": "exponential",
+										"fragments": [
+											{
+												"type": "data",
+												"key": "exponentialAverage",
+												"content": null,
+												"format": "number",
+												"javascript": null,
+												"template": null,
+												"class": null,
+												"form": {},
+												"dateFormat": null,
+												"tag": null,
+												"html": null,
+												"amountOfDecimals": "2"
+											}
+										],
+										"styles": [],
+										"hidden": null
+									},
+									{
+										"label": "latest",
+										"fragments": [
+											{
+												"type": "data",
+												"key": "latest.value",
+												"content": null,
+												"format": null,
+												"javascript": null,
+												"template": null,
+												"class": null,
+												"form": {},
+												"dateFormat": null,
+												"tag": "span",
+												"html": null,
+												"amountOfDecimals": null
+											},
+											{
+												"type": "text",
+												"content": " (",
+												"format": null,
+												"javascript": null,
+												"template": null,
+												"class": null,
+												"key": null,
+												"disabled": null,
+												"hidden": null,
+												"form": {},
+												"dateFormat": null,
+												"tag": "span",
+												"html": null,
+												"amountOfDecimals": null,
+												"multiline": false
+											},
+											{
+												"type": "data",
+												"content": null,
+												"format": "date",
+												"javascript": null,
+												"template": null,
+												"class": null,
+												"key": "latest.timestamp",
+												"disabled": null,
+												"hidden": null,
+												"form": {},
+												"dateFormat": "MM-dd HH:mm",
+												"tag": "span",
+												"html": null,
+												"amountOfDecimals": null,
+												"isTimestamp": true
+											},
+											{
+												"type": "text",
+												"content": ")",
+												"format": null,
+												"javascript": null,
+												"template": null,
+												"class": null,
+												"key": null,
+												"disabled": null,
+												"hidden": null,
+												"form": {},
+												"dateFormat": null,
+												"tag": "span",
+												"html": null,
+												"amountOfDecimals": null,
+												"multiline": false
+											}
+										],
+										"styles": [],
+										"hidden": null
+									},
+									{
+										"label": "range",
+										"fragments": [
+											{
+												"type": "data",
+												"key": "minimum.value",
+												"content": null,
+												"format": "number",
+												"javascript": null,
+												"template": null,
+												"class": null,
+												"form": {},
+												"dateFormat": null,
+												"tag": "span",
+												"html": null,
+												"amountOfDecimals": "2"
+											},
+											{
+												"type": "text",
+												"content": " - ",
+												"format": null,
+												"javascript": null,
+												"template": null,
+												"class": null,
+												"key": null,
+												"disabled": null,
+												"hidden": null,
+												"form": {},
+												"dateFormat": null,
+												"tag": "span",
+												"html": null,
+												"amountOfDecimals": null,
+												"multiline": false
+											},
+											{
+												"type": "data",
+												"content": null,
+												"format": "number",
+												"javascript": null,
+												"template": null,
+												"class": null,
+												"key": "maximum.value",
+												"disabled": null,
+												"hidden": null,
+												"form": {},
+												"dateFormat": null,
+												"tag": "span",
+												"html": null,
+												"amountOfDecimals": "2"
+											}
+										],
+										"styles": [],
+										"hidden": null
+									}
+								],
+								"updateOperation": null,
+								"updateBindings": {},
+								"multiselect": false,
+								"styles": [],
+								"refreshOn": [],
+								"showRefresh": true,
+								"result": {
+									"amountOfDataPoints": {
+										"label": null,
+										"format": null,
+										"custom": null,
+										"styles": []
+									},
+									"cumulativeAverage": {
+										"label": null,
+										"format": null,
+										"custom": null,
+										"styles": []
+									},
+									"cumulativeTotal": {
+										"label": null,
+										"format": null,
+										"custom": null,
+										"styles": []
+									},
+									"exponentialAverage": {
+										"label": null,
+										"format": null,
+										"custom": null,
+										"styles": []
+									},
+									"id": {
+										"label": null,
+										"format": null,
+										"custom": null,
+										"styles": []
+									},
+									"latest.timestamp": {
+										"label": null,
+										"format": null,
+										"custom": null,
+										"styles": []
+									},
+									"latest.value": {
+										"label": null,
+										"format": null,
+										"custom": null,
+										"styles": []
+									},
+									"maximum.timestamp": {
+										"label": null,
+										"format": null,
+										"custom": null,
+										"styles": []
+									},
+									"maximum.value": {
+										"label": null,
+										"format": null,
+										"custom": null,
+										"styles": []
+									},
+									"minimum.timestamp": {
+										"label": null,
+										"format": null,
+										"custom": null,
+										"styles": []
+									},
+									"minimum.value": {
+										"label": null,
+										"format": null,
+										"custom": null,
+										"styles": []
+									},
+									"name": {
+										"label": null,
+										"format": null,
+										"custom": null,
+										"styles": []
+									},
+									"type": {
+										"label": null,
+										"format": null,
+										"custom": null,
+										"styles": []
+									},
+									"maximum": {
+										"label": null,
+										"format": null,
+										"custom": null,
+										"styles": []
+									},
+									"minimum": {
+										"label": null,
+										"format": null,
+										"custom": null,
+										"styles": []
+									},
+									"latest": {
+										"label": null,
+										"format": null,
+										"custom": null,
+										"styles": []
+									}
+								},
+								"operation": "nabu.misc.metrics.manage.rest.metrics.statistics"
+							},
+							"target": "page",
+							"on": null,
+							"class": null,
+							"customId": null,
+							"width": 1,
+							"height": null,
+							"instances": {},
+							"condition": null,
+							"devices": [],
+							"clickEvent": null,
+							"result": {}
+						}
+					],
+					"class": null,
+					"customId": null,
+					"instances": {},
+					"condition": null,
+					"direction": null,
+					"align": null,
+					"on": null,
+					"collapsed": false,
+					"name": null
+				}
+			],
+			"path": "/metrics",
+			"counter": 3,
+			"variables": [],
+			"query": [],
+			"actions": [
+				{
+					"name": "View Artifact",
+					"on": "viewArtifact",
+					"confirmation": null,
+					"operation": null,
+					"route": "metrics-detail",
+					"event": null,
+					"anchor": null,
+					"bindings": {
+						"id": "viewArtifact.id"
+					},
+					"expandBindings": true
+				}
+			],
+			"class": null,
+			"initial": false,
+			"menuX": 0,
+			"menuY": 0,
+			"states": [],
+			"category": "Monitoring",
+			"slow": false,
+			"label": "Metrics Overview",
+			"name": "metrics-list"
+		}
+	}
+}
